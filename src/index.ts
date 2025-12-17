@@ -38,4 +38,9 @@ app.delete("/api/gift_receiver/:id", (c) => {
   return c.json({ ok: true })
 })
 
-export default app
+const port = Number(process.env.PORT) || 3000
+
+export default {
+  port,
+  fetch: app.fetch,
+}
