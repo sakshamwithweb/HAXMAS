@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Gift Center</title>
+</head>
+
+<body>
+    <h1>Santa Gift Center</h1>
+    <p>Welcome to Santa's gift center, here we have everybody's name!</p>
+    <button id="seeBtn">See Your Name</button>
+    <div id="message">
+
+    </div>
+    <script>
+        const message = document.getElementById("message")
+        document.getElementById("seeBtn").addEventListener("click", () => {
+            alert("404: Not found")
+            const messages = ["Oh it seems little elves were playing with real DB!",
+                "Everybody is opted out",
+                "Listen bro, santa has given you a mission!",
+                "Go all over the world with santa's driver and write everybodies name!"]
+            messages.forEach((m) => {
+                const p = document.createElement("p")
+                p.innerText = m
+                message.appendChild(p)
+            })
+            const howBtn = document.createElement("button")
+            howBtn.innerText = "How to opt in?"
+            message.append(howBtn)
+
+            howBtn.addEventListener("click",() => {
+                const code = document.createElement("p")
+                code.innerText= "See list: /api/gift_receivers\nWrite name: /api/gift_receivers POST\nUpdate name(already received): /api/gift_receiver/:id/fulfill PATCH\nDelete name: /api/gift_receiver/:id DELETE"
+                message.appendChild(code)
+            })
+        })
+    </script>
+</body>
+
+</html>
