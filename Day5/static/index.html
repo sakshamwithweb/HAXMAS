@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Receiver Names Picker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@erikwatson/snowfall@4/dist/index.min.js"></script>
+    <link rel="stylesheet" href="main.css" />
+</head>
+
+<body class="bg-black">
+    <div class="flex flex-col justify-center items-center gap-10 w-screen h-screen text-white">
+        <div class="flex flex-col gap-4 items-center">
+            <h1 class="text-4xl font-bold">Santa's Gift List!</h1>
+            <img class="w-60" src="/sak_christmas.png">
+            <p class="font-semibold text-xl">Sending gifts since 2025 BC but not anymore without your help! <a
+                    id="messageHover"
+                    title="(So, some younger elves were pretending to be devs and purged all christmas gift receivers' DB. Now, everyone must have to enter their names and refer to everyone.)" target="_blank"
+                    href="https://fastdeploy.deployor.dev/u/ident!rrfVKa/santa_gift_center/"><mark>Know
+                    more(hover)</mark></a><span id="message"></span></p>
+        </div>
+
+        <div class="interaction flex min-w-[60vw] justify-between">
+            <div class="w-full p-4 bg-blue-800">
+                <form id="receiverForm">
+                    <div class="w-full">
+                        <label for="name">Your name: </label>
+                        <input class="border rounded-md w-full p-1" id="name" type="text" name="name" required>
+                    </div>
+                    <div class="w-full">
+                        <label for="gift">Gift: </label>
+                        <input class="border rounded-md w-full p-1" id="gift" type="text" name="gift" required>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-red-800 min-w-[50%] max-h-[30vh] overflow-x-auto flex flex-col gap-4 items-center p-4">
+                <h1 class="text-2xl font-semibold">List</h1>
+                <div class="list flex flex-col"></div>
+            </div>
+        </div>
+        <button id="submit" class="bg-gray-600 text-white h-8 w-[60vw] rounded-2xl cursor-pointer">Submit 🎄!</button>
+    </div>
+    <div id="snowfall"></div>
+    <script>
+        snowfall.start({
+            layers: [
+                {
+                    colour: "#8d90b7"
+                },
+                {},
+                {
+                    density: 10,
+                    size: {
+                        min: 10,
+                        max: 30
+                    },
+                    image: "./sak_christmas.png",
+                    mode: "image"
+                }
+            ]
+        })
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>
